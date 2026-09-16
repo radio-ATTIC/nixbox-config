@@ -120,7 +120,6 @@ environment.systemPackages = with pkgs; [
 	git
 	wget
 	fastfetch
-	firefox
 	wl-clipboard
 	zoxide
 	awww
@@ -145,7 +144,6 @@ environment.systemPackages = with pkgs; [
   bottom
   impala
   atuin
-  rebels-in-the-sky
   tldr
   brightnessctl
   pkgs.swayosd
@@ -162,6 +160,7 @@ environment.systemPackages = with pkgs; [
   swappy
   hyprshot
   timr-tui
+  equibop
 ];
 
   # List packages installed in system profile.
