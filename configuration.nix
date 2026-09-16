@@ -104,8 +104,12 @@ programs.fish.enable = true;
 
 # Fonts
 
-  # Hyprland
-  programs.hyprland.enable = true;
+# Hyprland
+programs.hyprland = {
+  enable = true;
+  package = pkgs.hyprland.override { withSystemd = true; };
+  xwayland.enable = true;
+};
 
 # Packages
 environment.systemPackages = with pkgs; [
