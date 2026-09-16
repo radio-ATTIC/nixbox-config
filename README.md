@@ -1,14 +1,14 @@
 # nixbox
 
-My personal NixOS configuration for `nixbox` — a ThinkPad T14 Gen 1 (AMD Ryzen 5 PRO 4650U) dual-booting alongside CachyOS/KDE, built around a TUI/CLI-first workflow on Hyprland.
+My personal NixOS configuration for `nixbox` — a ThinkPad T14 Gen 1 dual-booting CachyOS/KDE, built around a TUI/CLI-firs workflow on Hyprland.
 
 ## Overview
 
-- **WM:** [Hyprland](https://hyprland.org/) (Lua config), with `hypridle` + `hyprlock` for idle/lock
+- **WM:** [Hyprland](https://hyprland.org/)
 - **Login:** `greetd` + `tuigreet`
 - **Shell:** fish, with `starship`, `zoxide`, `atuin`, `fzf`
 - **File manager:** `yazi`
-- **Terminal tools:** `btop`, `lazygit`, `timr-tui`, `fastfetch`, `impala`
+- **Terminal tools:** `bottom`, `lazygit`, `timr-tui`, `fastfetch`, `impala`
 - **Shared storage:** `/mnt/cachy-home` — the CachyOS btrfs home subvolume, mounted read/write so games and files (managed via [Heroic](https://heroicgameslauncher.com/)) are shared between both OS installs without duplicating anything
 
 ## Structure
