@@ -12,9 +12,9 @@ My personal NixOS configuration for `nixbox` — a ThinkPad T14 Gen 1 dual-booti
 - **Shared storage:** `/mnt/cachy-home` — the CachyOS btrfs home subvolume, mounted read/write so games and files (managed via [Heroic](https://heroicgameslauncher.com/)) are shared between both OS installs without duplicating anything
 
 ## Structure
-├── flake.nix # entrypoint — pins nixpkgs, defines the nixbox system
-├── flake.lock # pinned input versions
-└── configuration.nix # main system config
+flake.nix # entrypoint — pins nixpkgs, defines the nixbox system
+flake.lock # pinned input versions
+configuration.nix # main system config
 
 Currently a minimal flake wrapping a fairly traditional `configuration.nix` — no home-manager yet, still learning the flakes model one step at a time.
 
