@@ -22,7 +22,15 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  # networking.networkmanager.enable = true;
+networking.wireless.iwd.enable = true;
+
+  # Disk mount
+fileSystems."/mnt/cachy-home" = {
+  device = "/dev/disk/by-uuid/01974971-eb3e-4b8e-89c3-c12bce67396f";
+  fsType = "btrfs";
+  options = [ "subvol=@home" ];  # replace with the real subvol name from step 2
+};
 
   # Set your time zone.
   time.timeZone = "Africa/Casablanca";
@@ -52,18 +60,17 @@
   users.users."radio" = {
     isNormalUser = true;
     description = "Radioattic";
-    extraGroups = [ "networkmanager" "video" "audio" "wheel" ];
+    extraGroups = [ "video" "audio" "wheel" ];
     packages = with pkgs; [];
     shell = pkgs.fish;
   };
-  # Hyprland
-  programs.hyprland.enable = true;
+
   # Login 
   services.greetd = {
 	enable = true;
 	settings = {
 		default_session = {
-		command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd start-hyprland";
+		command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd start-hyprland";
 		};
 	};
 };
@@ -83,6 +90,12 @@ services.pipewire = {
 	pulse.enable = true;
 };
 
+# rtkit
+security.rtkit.enable = true;
+
+# Bluetooth
+hardware.bluetooth.enable = true;
+
 # Shell
 programs.fish.enable = true;
 
@@ -90,6 +103,9 @@ programs.fish.enable = true;
   nixpkgs.config.allowUnfree = true;
 
 # Fonts
+
+  # Hyprland
+  programs.hyprland.enable = true;
 
 # Packages
 environment.systemPackages = with pkgs; [
@@ -109,22 +125,39 @@ environment.systemPackages = with pkgs; [
 	swaynotificationcenter
 	fzf
 	pavucontrol
-	networkmanagerapplet
 	lm_sensors
 	upower
 	btop
 	appimage-run
 	unzip
-	oh-my-posh
 	thunar
-	equibop
 	obsidian
 	yank
-	kdePackages.ark
-	lazygit
 	neovim
   gcc
   tree-sitter
+  lazygit
+  delta
+  bottom
+  impala
+  atuin
+  rebels-in-the-sky
+  tldr
+  brightnessctl
+  pkgs.swayosd
+  localsend
+  nerd-fonts.jetbrains-mono
+  duf
+  taskwarrior3
+  taskwarrior-tui
+  hypridle
+  hyprlock
+  tty-clock
+  grim
+  slurp
+  swappy
+  hyprshot
+  timr-tui
 ];
 
   # List packages installed in system profile.
