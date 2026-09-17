@@ -173,6 +173,7 @@ environment.systemPackages = with pkgs; [
   github-cli
   dconf
   xdg-desktop-portal-termfilechooser
+  dc
 ];
 
  system.stateVersion = "26.05"; # Did you read the comment?
