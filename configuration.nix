@@ -94,7 +94,24 @@ programs.fish.enable = true;
 # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+# Yazi as the file picker
+xdg.portal = {
+  enable = true;
+  extraPortals = with pkgs; [
+    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-termfilechooser
+  ];
+  config.common.default = [ "hyprland" "gtk" ];
+};
+
 # Fonts
+
+# session Variables
+environment.sessionVariables = {
+  GTK_THEME = "Adwaita:dark";  # insert theme name
+  QT_QPA_PLATFORMTHEME = "qt6ct";
+};
 
 # Hyprland
 programs.hyprland = {
@@ -133,7 +150,6 @@ environment.systemPackages = with pkgs; [
   tree-sitter
   lazygit
   delta
-  bottom
   impala
   atuin
   tldr
@@ -154,6 +170,9 @@ environment.systemPackages = with pkgs; [
   timr-tui
   equibop
   glow
+  github-cli
+  dconf
+  xdg-desktop-portal-termfilechooser
 ];
 
  system.stateVersion = "26.05"; # Did you read the comment?
