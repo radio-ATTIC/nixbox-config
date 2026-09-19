@@ -106,6 +106,19 @@ xdg.portal = {
 };
 
 # Fonts
+# Mpd
+services.mpd = {
+  enable = true;
+  musicDirectory = "/home/radio/Music";
+  settings = {
+    audio_output = [
+      {
+        type = "pipewire";
+        name = "PipeWire Output";
+      }
+    ];
+  };
+};
 
 # session Variables
 environment.sessionVariables = {
@@ -177,8 +190,36 @@ environment.systemPackages = with pkgs; [
   imv
   nix-output-monitor
   socat
-  mpd
+  rmpc
+  tuigreet
+  mpc
 ];
+
+# tuigreet
+environment.etc."tuigreet/config.toml".text = ''
+  [display]
+  show_time = true
+  greeting = "welcome"
+
+  [remember]
+  username = true
+  user_session = true
+
+  [secret]
+  mode = "characters"
+  characters = "*"
+
+  [theme]
+  border = "blue"
+  text = "white"
+  container = "black"
+  prompt = "cyan"
+  input = "blue"
+  action = "white"
+  button = "blue"
+  time = "cyan"
+
+'';
 
  system.stateVersion = "26.05"; # Did you read the comment?
 
