@@ -11,7 +11,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixbox"; # Define your hostname.
+  networking.hostName = "nixbox"; # hostname
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
 
@@ -21,7 +21,7 @@ networking.wireless.iwd.enable = true;
 fileSystems."/mnt/cachy-home" = {
   device = "/dev/disk/by-uuid/01974971-eb3e-4b8e-89c3-c12bce67396f";
   fsType = "btrfs";
-  options = [ "subvol=@home" ];  # replace with the real subvol name from step 2
+  options = [ "subvol=@home" ];  
 };
 
   # Set your time zone.
@@ -48,7 +48,7 @@ fileSystems."/mnt/cachy-home" = {
     variant = "";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account
   users.users."radio" = {
     isNormalUser = true;
     description = "Radioattic";
@@ -176,6 +176,8 @@ environment.systemPackages = with pkgs; [
   swayimg
   imv
   nix-output-monitor
+  socat
+  mpd
 ];
 
  system.stateVersion = "26.05"; # Did you read the comment?
