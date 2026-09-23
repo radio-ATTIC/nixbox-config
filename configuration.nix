@@ -110,6 +110,7 @@ xdg.portal = {
 services.mpd = {
   enable = true;
   musicDirectory = "/home/radio/Music";
+  user = "radio";
   settings = {
     audio_output = [
       {
@@ -191,8 +192,12 @@ environment.systemPackages = with pkgs; [
   nix-output-monitor
   socat
   rmpc
-  tuigreet
   mpc
+  tuigreet
+  gimp
+  zapzap
+  android-tools
+  scrcpy
 ];
 
 # tuigreet
