@@ -203,6 +203,7 @@ environment.systemPackages = with pkgs; [
   scrcpy
   sherlock
   whatsie
+  heroic
 ];
 
 # tuigreet
