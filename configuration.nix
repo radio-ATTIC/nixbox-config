@@ -16,6 +16,10 @@
 
 
 networking.wireless.iwd.enable = true;
+networking.wireless.iwd.settings = {
+  Rank.BandModifier5Ghz = 0.0;
+};
+  # BandModifier2_4GHz = 0.0
 
   # Disk mount
 fileSystems."/mnt/cachy-home" = {
@@ -94,7 +98,7 @@ programs.fish.enable = true;
 # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-# Yazi as the file picker
+# Yazi as the file picker, doesnt work
 xdg.portal = {
   enable = true;
   extraPortals = with pkgs; [
@@ -195,9 +199,10 @@ environment.systemPackages = with pkgs; [
   mpc
   tuigreet
   gimp
-  zapzap
   android-tools
   scrcpy
+  sherlock
+  whatsie
 ];
 
 # tuigreet
