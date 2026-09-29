@@ -29,7 +29,7 @@ fileSystems."/mnt/cachy-home" = {
 };
 
   # Set your time zone.
-  time.timeZone = "Africa/Casablanca";
+  time.timeZone = "Europe/France";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -186,7 +186,6 @@ environment.systemPackages = with pkgs; [
   swappy
   hyprshot
   timr-tui
-  equibop
   glow
   github-cli
   dconf
@@ -204,6 +203,11 @@ environment.systemPackages = with pkgs; [
   sherlock
   whatsie
   heroic
+  wf-recorder
+  mpv
+  equibop
+  watt
+  ffmpeg
 ];
 
 # tuigreet
