@@ -129,6 +129,7 @@ services.mpd = {
 environment.sessionVariables = {
   GTK_THEME = "Adwaita:dark";  # insert theme name
   QT_QPA_PLATFORMTHEME = "qt6ct";
+
 };
 
 # Hyprland
@@ -208,6 +209,9 @@ environment.systemPackages = with pkgs; [
   equibop
   watt
   ffmpeg
+  yt-dlp
+  pkgs.bibata-cursors
+  losslesscut
 ];
 
 # tuigreet
