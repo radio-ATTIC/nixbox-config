@@ -17,9 +17,9 @@
 
 networking.wireless.iwd.enable = true;
 networking.wireless.iwd.settings = {
-  Rank.BandModifier5Ghz = 0.0;
+ #  Rank.BandModifier5Ghz = 0.0;
 };
-  # BandModifier2_4GHz = 0.0
+# BandModifier2_4GHz = 0.0
 
   # Disk mount
 fileSystems."/mnt/cachy-home" = {
@@ -212,6 +212,9 @@ environment.systemPackages = with pkgs; [
   yt-dlp
   pkgs.bibata-cursors
   losslesscut
+  prismlauncher
+  ani-cli
+  ani-skip
 ];
 
 # tuigreet
