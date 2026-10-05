@@ -206,7 +206,6 @@ environment.systemPackages = with pkgs; [
   heroic
   wf-recorder
   mpv
-  equibop
   watt
   ffmpeg
   yt-dlp
@@ -215,6 +214,7 @@ environment.systemPackages = with pkgs; [
   prismlauncher
   ani-cli
   ani-skip
+  litecli
 ];
 
 # tuigreet
