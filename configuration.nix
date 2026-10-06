@@ -177,11 +177,8 @@ environment.systemPackages = with pkgs; [
   localsend
   nerd-fonts.jetbrains-mono
   duf
-  taskwarrior3
-  taskwarrior-tui
   hypridle
   hyprlock
-  tty-clock
   grim
   slurp
   swappy
@@ -203,7 +200,6 @@ environment.systemPackages = with pkgs; [
   scrcpy
   sherlock
   whatsie
-  heroic
   wf-recorder
   mpv
   watt
@@ -215,6 +211,7 @@ environment.systemPackages = with pkgs; [
   ani-cli
   ani-skip
   litecli
+  equibop
 ];
 
 # tuigreet
