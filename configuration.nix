@@ -17,7 +17,7 @@
 
 networking.wireless.iwd.enable = true;
 networking.wireless.iwd.settings = {
- #  Rank.BandModifier5Ghz = 0.0;
+   Rank.BandModifier5Ghz = 0.0;
 };
 # BandModifier2_4GHz = 0.0
 
@@ -125,6 +125,14 @@ services.mpd = {
   };
 };
 
+# Syncthing
+services.syncthing = {
+  enable = true;
+  user = "radio";
+  dataDir = "/home/radio";
+  configDir = "/home/radio/.config/syncthing";
+  openDefaultPorts = true;
+};
 # session Variables
 environment.sessionVariables = {
   GTK_THEME = "Adwaita:dark";  # insert theme name
@@ -211,7 +219,7 @@ environment.systemPackages = with pkgs; [
   ani-cli
   ani-skip
   litecli
-  equibop
+  tree
 ];
 
 # tuigreet
