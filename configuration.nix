@@ -140,12 +140,17 @@ environment.sessionVariables = {
 
 };
 
+# Swaylock PAM
+security.pam.services.swaylock = {};
+
 # Hyprland
 programs.hyprland = {
   enable = true;
   package = pkgs.hyprland.override { withSystemd = true; };
   xwayland.enable = true;
 };
+# Niri
+programs.niri.enable = true;
 
 # Packages
 environment.systemPackages = with pkgs; [
@@ -203,7 +208,7 @@ environment.systemPackages = with pkgs; [
   rmpc
   mpc
   tuigreet
-  gimp
+  regreet
   android-tools
   scrcpy
   sherlock
@@ -220,6 +225,16 @@ environment.systemPackages = with pkgs; [
   ani-skip
   litecli
   tree
+  equibop
+  gnirehtet
+  xwayland-satellite
+  imagemagick
+  ripgrep
+  doppler
+  jq
+  starship
+  swaybg
+  swaylock
 ];
 
 # tuigreet
