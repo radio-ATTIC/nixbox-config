@@ -235,6 +235,7 @@ environment.systemPackages = with pkgs; [
   starship
   swaybg
   swaylock
+  ollama
 ];
 
 # tuigreet
