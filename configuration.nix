@@ -125,6 +125,19 @@ services.mpd = {
   };
 };
 
+# watt
+services.watt.enable = true;
+services.watt.settings.rule = [
+  {
+    name = "battery-thresholds";
+    priority = 10;
+    power.for = [ "BAT0" ];
+    power.charge-threshold-start = 75;
+    power.charge-threshold-end = 85;
+  }
+];
+systemd.services.watt.environment.WATT_CONFIG = "/etc/watt.toml"; 
+
 # Syncthing
 services.syncthing = {
   enable = true;
@@ -215,7 +228,6 @@ environment.systemPackages = with pkgs; [
   whatsie
   wf-recorder
   mpv
-  watt
   ffmpeg
   yt-dlp
   pkgs.bibata-cursors
@@ -225,7 +237,6 @@ environment.systemPackages = with pkgs; [
   ani-skip
   litecli
   tree
-  equibop
   gnirehtet
   xwayland-satellite
   imagemagick
@@ -236,6 +247,7 @@ environment.systemPackages = with pkgs; [
   swaybg
   swaylock
   ollama
+  dm-mono
 ];
 
 # tuigreet
