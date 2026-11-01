@@ -66,7 +66,7 @@ fileSystems."/mnt/cachy-home" = {
 	enable = true;
 	settings = {
 		default_session = {
-		command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd start-hyprland";
+		command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri";
 		};
 	};
 };
@@ -98,15 +98,14 @@ programs.fish.enable = true;
 # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-# Yazi as the file picker, doesnt work
+# Yazi as the file picker
 xdg.portal = {
   enable = true;
   extraPortals = with pkgs; [
-    xdg-desktop-portal-hyprland
     xdg-desktop-portal-gtk
     xdg-desktop-portal-termfilechooser
   ];
-  config.common.default = [ "hyprland" "gtk" ];
+  config.common.default = [ "gtk" ];
 };
 
 # Fonts
@@ -156,22 +155,13 @@ environment.sessionVariables = {
 # Swaylock PAM
 security.pam.services.swaylock = {};
 
-# Hyprland
-programs.hyprland = {
-  enable = true;
-  package = pkgs.hyprland.override { withSystemd = true; };
-  xwayland.enable = true;
-};
 # Niri
 programs.niri.enable = true;
 
 # Packages
 environment.systemPackages = with pkgs; [
-	kitty
 	rofi
 	waybar
-	wofi
-	git
 	wget
 	fastfetch
 	wl-clipboard
@@ -180,7 +170,6 @@ environment.systemPackages = with pkgs; [
 	wlogout
 	yazi
 	swaynotificationcenter
-	fzf
 	pavucontrol
 	lm_sensors
 	upower
@@ -208,7 +197,6 @@ environment.systemPackages = with pkgs; [
   grim
   slurp
   swappy
-  hyprshot
   timr-tui
   glow
   github-cli
