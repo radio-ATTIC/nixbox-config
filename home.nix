@@ -2,8 +2,6 @@
 {
   imports = [
     ./home/kitty.nix
-    ./home/git.nix
-    ./home/shell.nix
   ];
 
   home.stateVersion = "26.05";

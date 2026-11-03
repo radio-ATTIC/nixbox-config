@@ -61,18 +61,57 @@ fileSystems."/mnt/cachy-home" = {
     shell = pkgs.fish;
   };
 
-  # Login 
-  services.greetd = {
-	enable = true;
-	settings = {
-		default_session = {
-		command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri";
-		};
-	};
+programs.regreet = {
+  enable = true;
+
+  # Written to /etc/greetd/regreet.toml
+  settings = {
+    background = {
+     # path = "${./wallpaper.jpg}";   # copied into the Nix store, readable by the greeter
+     # fit = "Cover";                 # Fill, Contain, Cover, ScaleDown
+    };
+    GTK = {
+      application_prefer_dark_theme = true;
+    };
+    commands = {
+      reboot   = [ "systemctl" "reboot" ];
+      poweroff = [ "systemctl" "poweroff" ];
+    };
+    appearance = {
+      greeting_msg = "Welcome home";
+    };
+  };
+
+  theme = {
+    package = pkgs.gruvbox-gtk-theme;
+    name = "Gruvbox-Dark";
+  };
+  iconTheme = {
+    package = pkgs.papirus-icon-theme;
+    name = "Papirus-Dark";
+  };
+  cursorTheme = {
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+  };
+  font = {
+    package = pkgs.nerd-fonts.jetbrains-mono;
+    name = "JetBrainsMono Nerd Font";
+    size = 14;
+  };
+
+  # Raw GTK CSS for anything the options don't cover
+  extraCss = ''
+    window { background-color: rgba(0, 0, 0, 0.4); }
+  '';
 };
+
 
 # Flakes toggle
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+# udisk2
+services.udisks2.enable = true;
 
 # Graphics / polkit
 hardware.graphics.enable = true;
@@ -109,20 +148,7 @@ xdg.portal = {
 };
 
 # Fonts
-# Mpd
-services.mpd = {
-  enable = true;
-  musicDirectory = "/home/radio/Music";
-  user = "radio";
-  settings = {
-    audio_output = [
-      {
-        type = "pipewire";
-        name = "PipeWire Output";
-      }
-    ];
-  };
-};
+
 
 # watt
 services.watt.enable = true;
@@ -161,6 +187,8 @@ programs.niri.enable = true;
 # Packages
 environment.systemPackages = with pkgs; [
 	rofi
+  fzf
+  adwaita-icon-theme
 	waybar
 	wget
 	fastfetch
@@ -206,9 +234,6 @@ environment.systemPackages = with pkgs; [
   imv
   nix-output-monitor
   socat
-  rmpc
-  mpc
-  tuigreet
   regreet
   android-tools
   scrcpy
@@ -236,33 +261,10 @@ environment.systemPackages = with pkgs; [
   swaylock
   ollama
   dm-mono
+  librewolf
+  heroic
+  git
 ];
-
-# tuigreet
-environment.etc."tuigreet/config.toml".text = ''
-  [display]
-  show_time = true
-  greeting = "welcome"
-
-  [remember]
-  username = true
-  user_session = true
-
-  [secret]
-  mode = "characters"
-  characters = "*"
-
-  [theme]
-  border = "blue"
-  text = "white"
-  container = "black"
-  prompt = "cyan"
-  input = "blue"
-  action = "white"
-  button = "blue"
-  time = "cyan"
-
-'';
 
  system.stateVersion = "26.05"; # Did you read the comment?
 
