@@ -21,12 +21,6 @@ networking.wireless.iwd.settings = {
 };
 # BandModifier2_4GHz = 0.0
 
-  # Disk mount
-fileSystems."/mnt/cachy-home" = {
-  device = "/dev/disk/by-uuid/01974971-eb3e-4b8e-89c3-c12bce67396f";
-  fsType = "btrfs";
-  options = [ "subvol=@home" ];  
-};
 
   # Set your time zone.
   time.timeZone = "Europe/France";
@@ -67,8 +61,8 @@ programs.regreet = {
   # Written to /etc/greetd/regreet.toml
   settings = {
     background = {
-     # path = "${./wallpaper.jpg}";   # copied into the Nix store, readable by the greeter
-     # fit = "Cover";                 # Fill, Contain, Cover, ScaleDown
+     path = "${./wallpaper.png}";   # copied into the Nix store, readable by the greeter
+     fit = "Cover";                 # Fill, Contain, Cover, ScaleDown
     };
     GTK = {
       application_prefer_dark_theme = true;
@@ -110,11 +104,12 @@ programs.regreet = {
 # Flakes toggle
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+# Flatpak
+services.flatpak.enable = true;
 # udisk2
 services.udisks2.enable = true;
 
 # Graphics / polkit
-hardware.graphics.enable = true;
 security.polkit.enable = true;
 
 # Audio / Pipewire
@@ -148,7 +143,18 @@ xdg.portal = {
 };
 
 # Fonts
-
+# Gaming
+hardware.graphics = {
+  enable = true;
+  enable32Bit = true;
+};
+programs.gamemode.enable = true;
+programs.gamescope.enable = true;
+zramSwap.enable = true; 
+programs.steam = {
+  enable = true;
+  extraCompatPackages = [ pkgs.proton-ge-bin ];
+};
 
 # watt
 services.watt.enable = true;
@@ -243,9 +249,10 @@ environment.systemPackages = with pkgs; [
   mpv
   ffmpeg
   yt-dlp
+  equibop
+  blender
   pkgs.bibata-cursors
   losslesscut
-  prismlauncher
   ani-cli
   ani-skip
   litecli
@@ -264,6 +271,12 @@ environment.systemPackages = with pkgs; [
   librewolf
   heroic
   git
+  efibootmgr
+  mangohud
+  zip
+  unrar
+  umu-launcher
+  tuxedo
 ];
 
  system.stateVersion = "26.05"; # Did you read the comment?

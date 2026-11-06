@@ -1,25 +1,26 @@
-# home/kitty.nix
 { ... }:
 {
-programs.kitty = {
-  enable = true;
+  programs.kitty = {
+    enable = true;
 
-  font = {
-    name = "JetBrainsMono Nerd Font";
-    size = 12;
+    font = {
+      name = "JetbrainsMono Nerd Font";
+      size = 12;
+    };
+ themeFile = "gruvbox-dark-hard";
+
+
+    settings = {
+      enable_audio_bell = false;
+      confirm_os_window_close = -1;
+         };
+
+    keybindings = {
+      # "ctrl+shift+t" = "new_tab";
+    };
+
+    extraConfig = ''
+      # anything you can't translate goes here, written exactly as in kitty.conf
+    '';
   };
-
-  settings = {
-    background_opacity = "0.9";
-    confirm_os_window_close = 0;
-    scrollback_lines = 10000;
-  };
-
-  keybindings = {
-    "ctrl+shift+t" = "new_tab";
-  };
-
-  extraConfig = ''
-  '';
-};
 }
