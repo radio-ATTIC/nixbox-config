@@ -186,6 +186,7 @@ environment.sessionVariables = {
 
 # Swaylock PAM
 security.pam.services.swaylock = {};
+security.pam.services.hyprlock = {};
 
 # Niri
 programs.niri.enable = true;
@@ -265,7 +266,6 @@ environment.systemPackages = with pkgs; [
   jq
   starship
   swaybg
-  swaylock
   ollama
   dm-mono
   librewolf
@@ -277,6 +277,8 @@ environment.systemPackages = with pkgs; [
   unrar
   umu-launcher
   tuxedo
+  fetch
+  swayidle
 ];
 
  system.stateVersion = "26.05"; # Did you read the comment?

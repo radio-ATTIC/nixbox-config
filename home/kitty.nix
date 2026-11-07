@@ -7,12 +7,13 @@
       name = "JetbrainsMono Nerd Font";
       size = 12;
     };
- themeFile = "gruvbox-dark-hard";
+ themeFile = "GruvboxMaterialDarkMedium";
 
 
     settings = {
       enable_audio_bell = false;
       confirm_os_window_close = 0;
+      window_padding_width = 3;
          };
 
     keybindings = {
