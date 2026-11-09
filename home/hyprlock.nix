@@ -1,12 +1,12 @@
 { pkgs, ... }:
 let
   art = ./art.txt;   # same file you give programs.screensaver.artFile
-    artPng = pkgs.runCommand "lock-art.png" { nativeBuildInputs = [ pkgs.imagemagick ]; } ''
-    magick -background black -fill white \
+      artPng = pkgs.runCommand "lock-art.png" { nativeBuildInputs = [ pkgs.imagemagick ]; } ''
+    magick -background none -fill white \
       -font ${pkgs.dejavu_fonts}/share/fonts/truetype/DejaVuSansMono.ttf \
       -pointsize 32 -interline-spacing -4 \
-      label:"$(cat ${art})" $out
-  '';
+      label:"$(cat ${art})" PNG32:$out
+ '';
 in
 {
   programs.hyprlock = {
@@ -18,6 +18,7 @@ in
       };
 
       background = [{
+        path = "/etc/nixos/wallpaper.png";
         color = "rgba(0, 0, 0, 1.0)";
       }];
 

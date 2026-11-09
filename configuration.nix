@@ -250,7 +250,6 @@ environment.systemPackages = with pkgs; [
   mpv
   ffmpeg
   yt-dlp
-  equibop
   blender
   pkgs.bibata-cursors
   losslesscut
@@ -278,7 +277,9 @@ environment.systemPackages = with pkgs; [
   umu-launcher
   tuxedo
   fetch
-  swayidle
+  cemu
+  countryfetch
+  onlyoffice-desktopeditors
 ];
 
  system.stateVersion = "26.05"; # Did you read the comment?

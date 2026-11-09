@@ -140,7 +140,7 @@ in
 
     idleSeconds = lib.mkOption {
       type = lib.types.int;
-      default = 120;
+      default = 400;
       description = "Idle time before the screensaver starts.";
     };
 
@@ -152,7 +152,7 @@ in
 
     lockSeconds = lib.mkOption {
       type = lib.types.int;
-      default = 300;
+      default = 500;
       description = "Idle time before locking (ignored if lockCommand is null).";
     };
   };
